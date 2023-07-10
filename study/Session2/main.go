@@ -4,7 +4,7 @@ import ( //导入依赖的其它包
 	"fmt"       // $GOPATH/src/fmt
 	"math/rand" // 导入math下的rand，之后用rand.调用函数
 
-	"practise/chapter2/color" // 使用go module导入本地包。第一个名字是go.mod中module对象(项目名or总包名)
+	"practise/Session2/color" // 使用go module导入本地包。第一个名字是go.mod中module对象(项目名or总包名)
 	// "./color" // 有时候可以这样，有时候又不行
 	// 对于红波浪线，直接启动go run
 )

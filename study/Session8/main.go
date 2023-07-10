@@ -29,7 +29,7 @@ func work1(list []string) uint {
 	go func() { // closer
 		wg.Wait()    // 阻塞等待计数器为0
 		close(sizes) // 关闭通道(的写端)
-	}() // 这段代码必须令开goroutine，否则放哪里都是错的
+	}() // 这段代码必须另开goroutine，否则放哪里都是错的(注意下面的for没有对sizes是否为空作判断)
 
 	var tot uint
 	for sz := range sizes { // range可以从通道中取值，无值则阻塞，直至写端关闭
