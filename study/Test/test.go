@@ -1,11 +1,12 @@
 package main
 
-import "fmt"
-
 //import "Golang/Test/pkg"
 
+func f1(x int) int {
+	return x + 1
+}
+
 func main() {
-	var s []int
-	s = append(s, 1)
-	fmt.Println(s)
+	//f1=func(x int)int {return x+2}
+
 }

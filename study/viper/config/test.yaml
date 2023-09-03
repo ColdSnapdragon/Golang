@@ -1,0 +1,9 @@
+# 包含了若干个键值对。值可为标量、列表或对象
+title: "book" # 冒号表示键值对的关系。值为标量
+published: 2023
+contributor:  # 值为列表，表示多个值的有序集合
+  - main: "ice" # 使-表示列表元素的开始。缩进表示嵌套关系
+  - "blover" # 列表的元素可以是不同的数据类型(但会使分析更复杂)
+info: # 值为对象，表示一组键值对的集合
+  name: test # 字符串若无特殊符号可不加引号
+  description: "the test for yaml"
