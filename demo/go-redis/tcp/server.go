@@ -23,7 +23,7 @@ func ListenAndServeWithSignal(cfg *Config, handler tcp.Handler) error {
 
 	var closed chan struct{}
 	go func() {
-		var c chan os.Signal
+		c := make(chan os.Signal)
 		signal.Notify(c, syscall.SIGHUP, syscall.SIGINT, syscall.SIGQUIT, syscall.SIGTERM)
 		s := <-c
 		switch s {

@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //import "Golang/Test/pkg"
 
 func f1(x int) int {
@@ -8,5 +10,6 @@ func f1(x int) int {
 
 func main() {
 	//f1=func(x int)int {return x+2}
-
+	var x uint = 1
+	fmt.Println(x - 2)
 }

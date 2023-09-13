@@ -18,6 +18,7 @@ import (
 type EchoHandler struct {
 	activeConn sync.Map
 	closing    atomic.Boolean // 是否停止处理
+	// 这些成员会被每一个被开为协程去运行的(*EchoHandler)Handle函数共享
 }
 
 // 表示一个客户端实体。我们把Conn和其他信息一起保存，放到activeConn，以便管理
@@ -61,7 +62,7 @@ func (handler *EchoHandler) Handle(ctx context.Context, conn net.Conn) {
 	}
 }
 
-func (handler *EchoHandler) Close() {
+func (handler *EchoHandler) Close() error {
 	logger.Info("echo server closing ...")
 	handler.closing.Set(true)
 	handler.activeConn.Range(func(key, value any) bool {
@@ -69,4 +70,5 @@ func (handler *EchoHandler) Close() {
 		_ = cli.Close()
 		return true // 返回false时，停止当前对Map的遍历
 	})
+	return nil
 }
